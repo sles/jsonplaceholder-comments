@@ -2,11 +2,11 @@ import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import type { StoreState } from '../../../store';
-import { initialGetRequest, getRequest } from '../redux/actions';
-import { PaginationCommentsParams } from '../ts';
+import { initialGetRequest, getRequest, postRequest } from '../redux/actions';
+import { CommentPostParams, PaginationCommentsParams } from '../ts';
 
 export default function useComments() {
-  const { error, isLoading, data, params, initialLoading, initiallyLoaded, total } = useSelector(
+  const { error, isLoading, data, params, initialLoading, initiallyLoaded, total, isPosting } = useSelector(
     (state: StoreState) => state.comments
   );
 
@@ -18,8 +18,10 @@ export default function useComments() {
 
   const onGetInitialComments = useCallback(() => !initialLoading && dispatch(initialGetRequest({limit: params.limit, offset: 0})), [dispatch, initialLoading, params]);
 
+  const onPostComment = useCallback((data: CommentPostParams) => !isPosting && dispatch(postRequest(data)), [dispatch, isPosting]);
 
   return {
+    isPosting,
     total,
     initialLoading,
     isLoading,
@@ -29,5 +31,6 @@ export default function useComments() {
     initiallyLoaded,
     onGetInitialComments,
     onGetComments,
+    onPostComment,
   };
 }

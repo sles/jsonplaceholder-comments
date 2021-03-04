@@ -30,7 +30,7 @@ const Comment: React.FC<CommentProps> = ({name, body, email}) => {
   const classes = useStyles();
   return (
     <Grid className={classes.root}>
-      <Paper elevation={2} className={classes.paper}>
+      <Paper elevation={1} className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2} >
           <Grid item>
             <Avatar alt="Avatar" />

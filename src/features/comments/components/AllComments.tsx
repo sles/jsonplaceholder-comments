@@ -2,7 +2,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
-import { Comment, CommentsNotFound, Loader } from '../components';
+import { Comment, CommentsNotFound, Loader, PostCommentForm } from '../components';
 import useComments from '../hooks/useComments';
 import useInfiniteComments from '../hooks/useInfiniteComments';
 
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     zIndex: 1,
     height: '100%',
-    padding: theme.spacing(3, 0),
+    padding: theme.spacing(1, 0, 2),
   },
   anchor: {
     position: 'absolute',
@@ -27,6 +27,7 @@ const AllComments = () => {
   const { handleChange } = useInfiniteComments();
   return (
     <Grid className={classes.root}>
+      <PostCommentForm />
       <Grid container>
         {data.map(comment => (
           <Grid key={`${comment.id}${comment.postId}`} item xs={12}>
@@ -35,7 +36,7 @@ const AllComments = () => {
             </VisibilitySensor>
           </Grid>
         ))}
-         {(isLoading || initialLoading) && <Loader />}
+        {(isLoading || initialLoading) && <Loader />}
       </Grid>
       {initiallyLoaded && !data.length && <CommentsNotFound title='Comments not found...' />}
     </Grid>

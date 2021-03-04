@@ -7,6 +7,7 @@ import * as types from './types';
 const INITIAL_STATE = {
   data: [] as AppComment[],
   isLoading: false,
+  isPosting: false,
   initialLoading: false,
   initiallyLoaded: false,
   // usually returns from the API, but https://jsonplaceholder.typicode.com does not, so it is hardcoded
@@ -72,6 +73,19 @@ const reducer: Reducer<typeof INITIAL_STATE, CommentsActions> = (
         ...state,
         isLoading: false,
         error,
+      };
+    }
+    case types.POST_REQUEST: {
+      return {
+        ...state,
+        isPosting: true,
+      };
+    }
+    case types.POST_SUCCESS:
+    case types.POST_FAILED: {
+      return {
+        ...state,
+        isPosting: false,
       };
     }
     default: {

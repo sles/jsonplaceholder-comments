@@ -1,5 +1,5 @@
-import { AxiosPromise } from 'axios';
-import { AppComment, PaginationCommentsParams } from '../ts';
+import axios, { AxiosPromise } from 'axios';
+import { AppComment, CommentPostParams, PaginationCommentsParams } from '../ts';
 import { api } from '../../../api';
 
 export const commentsGet = ({limit, offset}: PaginationCommentsParams): AxiosPromise<AppComment[]> => api.get(`comments`, {
@@ -8,3 +8,7 @@ export const commentsGet = ({limit, offset}: PaginationCommentsParams): AxiosPro
     _limit: limit,
   }
 });
+
+export const commentPost = (data: CommentPostParams): AxiosPromise<void> =>
+  axios.post(`https://test.steps.me/test/testAssignComment`, {...data, postId: 1});
+

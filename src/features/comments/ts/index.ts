@@ -10,3 +10,5 @@ export type PaginationCommentsParams = {
   limit: number;
   offset: number;
 }
+
+export type CommentPostParams = Pick<AppComment, 'body' | 'name' | 'email'>;

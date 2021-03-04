@@ -1,4 +1,4 @@
-import type { PaginationCommentsParams, AppComment  } from '../ts';
+import type { PaginationCommentsParams, AppComment, CommentPostParams } from '../ts';
 import * as types from './types';
 
 export const initialGetRequest = (params: PaginationCommentsParams) => ({
@@ -45,6 +45,21 @@ export const getFailed = (error: Error) => ({
   },
 });
 
+export const postRequest = (data: CommentPostParams) => ({
+  type: types.POST_REQUEST,
+  payload: {
+    data,
+  }
+});
+
+export const postSuccess = () => ({
+  type: types.POST_SUCCESS,
+});
+
+export const postFailed = () => ({
+  type: types.POST_FAILED,
+});
+
 export type CommentsActions = ReturnType<
   | typeof initialGetRequest
   | typeof initialGetSuccess
@@ -52,4 +67,7 @@ export type CommentsActions = ReturnType<
   | typeof getRequest
   | typeof getSuccess
   | typeof getFailed
+  | typeof postRequest
+  | typeof postSuccess
+  | typeof postFailed
   >;
