@@ -1,4 +1,5 @@
 import Page from './Page';
 import Basic from './Basic';
+import Comment from './Comment';
 
-export { Page, Basic };
+export { Page, Basic, Comment };

@@ -6,9 +6,9 @@ const getOverrides = (): Overrides => ({});
 export default createMuiTheme({
   palette: {
     primary: {
-      light: '#a5e57b',
-      main: '#73b34c',
-      dark: '#42831d',
+      light: '#56c8d8',
+      main: '#0097a7',
+      dark: '#006978',
       contrastText: '#fff',
     },
     secondary: {

@@ -1,3 +1,7 @@
-export const GET_COMMENTS_REQUEST = `[comments]GET_COMMENTS_REQUEST` as const;
-export const GET_COMMENTS_SUCCESS = `[comments]GET_COMMENTS_SUCCESS` as const;
-export const GET_COMMENTS_FAILED = `[comments]GET_COMMENTS_FAILED` as const;
+export const INITIAL_GET_REQUEST = `[comments]INITIAL_GET_REQUEST` as const;
+export const INITIAL_GET_SUCCESS = `[comments]INITIAL_GET_SUCCESS` as const;
+export const INITIAL_GET_FAILED = `[comments]INITIAL_GET_FAILED` as const;
+
+export const GET_REQUEST = `[comments]GET_REQUEST` as const;
+export const GET_SUCCESS = `[comments]GET_SUCCESS` as const;
+export const GET_FAILED = `[comments]GET_FAILED` as const;
