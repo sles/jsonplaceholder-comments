@@ -18,7 +18,7 @@ Main technologies - React, Redux (redux-saga), Typescript, Material-UI.
    ```
 2. Start development server:
    ```sh
-   npm run dev
+   npm run start
    ```
 3. Build app:
    ```sh
